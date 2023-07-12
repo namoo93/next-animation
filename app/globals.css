@@ -31,14 +31,31 @@
   transform: translate(-50%, 40%);
 }
 
-.balloon {
+.balloon_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.balloon_bottom {
+  width: 15px;
+  height: 30px;
+  border: 2px solid #000;
+  z-index: -1;
+  left: calc(50% - 10px);
+  perspective: 100px;
+  transform: perspective(100px) rotateX(50deg);
+  border-radius: 0 0 5px 5px;
 }
 
 /* balloon_bear */
+.balloon_bear > .balloon_bottom {
+  top: 42%;
+  background: rgb(190, 120, 60);
+}
 .balloon_bear {
-  font-size: calc(10vmin / 260);
   position: relative;
-  margin: auto;
   width: 260px;
   height: 330px;
 }
@@ -47,7 +64,6 @@
 }
 .right_ear,
 .left_ear,
-.head,
 .right_eye,
 .left_eye,
 .nose,
@@ -70,7 +86,6 @@
   height: 20px;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
-
 .right_ear {
   left: 30px;
   transform: translate(-1px, -3px) rotate(-44deg);
@@ -82,21 +97,19 @@
 .right_ear > .ear_inner {
   transform: translate(18px, 15px);
 }
-
 .left_ear > .ear_inner {
   transform: translate(18px, 15px);
 }
-.head {
+.bear_head {
   background: rgb(190, 120, 60);
   width: 160px;
-  height: 160px;
+  height: 150px;
   right: 0;
   left: 0;
   margin: auto;
   border: 2px solid #000;
   border-radius: 60% 60% 50% 50%;
 }
-
 .right_eye,
 .left_eye {
   background-color: black;
@@ -110,7 +123,6 @@
 .left_eye {
   right: 45px;
 }
-
 .nose {
   background: rgb(0, 0, 0);
   bottom: 50px;
@@ -120,7 +132,6 @@
   width: 20px;
   height: 15px;
 }
-
 .right_cheek,
 .left_cheek {
   bottom: 40px;
@@ -131,13 +142,31 @@
   box-shadow: -2px -2px 0 0 rgb(115, 80, 45) inset;
   left: 60px;
 }
-.bear_mouse {
-  bottom: 0px;
-  width: 30px;
-  height: 30px;
-  background-color: rgb(115, 80, 45);
-}
 .left_cheek {
   box-shadow: 2px -2px 0 0 rgb(115, 80, 45) inset;
   right: 60px;
+}
+.bear_mouse {
+  left: calc(50% - 5px);
+  bottom: 35px;
+  width: 10px;
+  height: 10px;
+  border-radius: 0 0 70% 0;
+  background-color: rgb(115, 80, 45);
+  transform: rotate(45deg);
+}
+
+/* css animations */
+.balloon_animation {
+  transition: transform 0.5s ease;
+  animation: balloons 4s ease-in-out infinite;
+}
+@keyframes balloons {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
 }

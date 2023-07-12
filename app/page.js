@@ -4,6 +4,7 @@ import cloudsUrl from '../public/clouds.svg?url';
 import HouseSvgComponent from './House';
 import { useState } from 'react';
 import BearComponent from './Bear';
+import BalloonWrapComponent from './BalloonWrap';
 
 export default function Home() {
   const [backgroundColor, setBackgroundColor] = useState('skyblue');
@@ -33,7 +34,13 @@ export default function Home() {
         />
       </div>
       {/* Pure CSS Drawing Components */}
-      <BearComponent />
+      <BalloonWrapComponent
+        translateX={'-300%'}
+        translateY={'-50%'}
+        scale={0.8}
+        rotate={15}>
+        <BearComponent />
+      </BalloonWrapComponent>
     </main>
   );
 }
