@@ -17,7 +17,7 @@
 }
 
 .svg_wrap {
- position: absolute;
+  position: absolute;
 }
 
 .cloud {
@@ -28,107 +28,116 @@
 .house_wrap {
   top: 50%;
   left: 50%;
-  transform: translate(-50%,40%);
+  transform: translate(-50%, 40%);
 }
 
 .balloon {
-
 }
 
 /* balloon_bear */
 .balloon_bear {
   font-size: calc(10vmin / 260);
-	position: relative;
-	margin: auto;
-	width: 260px;
-	height: 330px;
+  position: relative;
+  margin: auto;
+  width: 260px;
+  height: 330px;
 }
 .balloon_bear div {
-	position: absolute;
+  position: absolute;
 }
-.right_ear, .left_ear, .head, .right_eye, .left_eye, .nose, .right_cheek, .left_cheek {
+.right_ear,
+.left_ear,
+.head,
+.right_eye,
+.left_eye,
+.nose,
+.right_cheek,
+.left_cheek {
   border-radius: 50%;
 }
-.right_ear, .left_ear {
-	background: rgb(190,120,60);
-	width: 80px;
-	height: 40px;
+.right_ear,
+.left_ear {
+  background: rgb(190, 120, 60);
+  width: 80px;
+  height: 40px;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   border: 2px solid #000;
   border-bottom: 0;
 }
 .ear_inner {
   background: rgb(100, 60, 24);
-	width: 40px;
-	height: 20px;
+  width: 40px;
+  height: 20px;
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
 .right_ear {
-	left: 30px;
-  transform: translate(-1px,-3px) rotate(-44deg);
+  left: 30px;
+  transform: translate(-1px, -3px) rotate(-44deg);
 }
 .left_ear {
-	right: 30px;
-  transform: translate(1px,-3px) rotate(44deg);
+  right: 30px;
+  transform: translate(1px, -3px) rotate(44deg);
 }
 .right_ear > .ear_inner {
-  transform: translate(18px,15px);
+  transform: translate(18px, 15px);
 }
 
 .left_ear > .ear_inner {
-  transform: translate(18px,15px);
+  transform: translate(18px, 15px);
 }
 .head {
-	background: rgb(190,120,60);
-	width: 160px;
-	height: 160px;
-	right: 0;
-	left: 0;
-	margin: auto;
+  background: rgb(190, 120, 60);
+  width: 160px;
+  height: 160px;
+  right: 0;
+  left: 0;
+  margin: auto;
   border: 2px solid #000;
   border-radius: 60% 60% 50% 50%;
 }
 
-.right_eye, .left_eye {
-	background-color: black;
-	top: 65px;
-	width: 20px;
-	height: 20px;
+.right_eye,
+.left_eye {
+  background-color: black;
+  top: 65px;
+  width: 20px;
+  height: 20px;
 }
 .right_eye {
-	left: 45px;
+  left: 45px;
 }
 .left_eye {
-	right: 45px;
+  right: 45px;
 }
 
 .nose {
-	background: rgb(0,0,0);
-	bottom: 50px;
-	right: 0;
-	left: 0;
-	margin: auto;
-	width: 20px;
-	height: 15px;
+  background: rgb(0, 0, 0);
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 20px;
+  height: 15px;
 }
 
-.right_cheek, .left_cheek {
-	bottom: 40px;
-	width: 20px;
-	height: 20px;
+.right_cheek,
+.left_cheek {
+  bottom: 40px;
+  width: 20px;
+  height: 20px;
 }
 .right_cheek {
-	box-shadow: -2px -2px 0 0 rgb(115,80,45) inset;
-	left: 60px;
+  box-shadow: -2px -2px 0 0 rgb(115, 80, 45) inset;
+  left: 60px;
 }
 .bear_mouse {
-  bottom: 40px;
-	width: 20px;
-	height: 20px;
-  background-color: rgb(115,80,45);
+  bottom: 0px;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(115, 80, 45);
 }
 .left_cheek {
-	box-shadow: 2px -2px 0 0 rgb(115,80,45) inset;
-	right: 60px;
+  box-shadow: 2px -2px 0 0 rgb(115, 80, 45) inset;
+  right: 60px;
 }
