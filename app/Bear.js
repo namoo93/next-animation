@@ -1,5 +1,4 @@
-'use client';
-export default function BearComponent({ isOnClick }) {
+export default function BearComponent() {
   return (
     <div className='balloon_bear balloon_animation'>
       <div className='bear_head'>
