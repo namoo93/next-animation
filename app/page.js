@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cloudsUrl from '../public/clouds.svg?url';
 import HouseSvgComponent from './House';
@@ -8,20 +8,32 @@ import BalloonWrapComponent from './BalloonWrap';
 import FlowerComponent from './Flower';
 import HeartComponent from './Heart';
 import NormalComponent from './Normal';
+import { v4 } from 'uuid';
 
 export default function Home() {
-  const balloonArr = [
-    { key: 1, type: 'bear' },
-    { key: 2, type: 'flower' },
-    { key: 3, type: 'heart' },
-    { key: 4, type: 'normal' },
+  const balloonArray = [
+    // { key: 1, type: 'bear' },
+    // { key: 2, type: 'flower' },
+    // { key: 3, type: 'heart' },
+    // { key: 4, type: 'normal' },
   ];
+
   const [backgroundColor, setBackgroundColor] = useState('skyblue');
-  const [balloonNumber, setBalloonNumber] = useState(balloonArr);
+  const [balloons, setBalloons] = useState(balloonArray);
+
+  const balloonsHandler = () => {
+    let arr = [];
+
+    // arr.push({ key: v4(), type: ,translateX: , translateY: ,scale: ,rotate: });
+  };
+
+  useEffect(() => {
+    setBalloons();
+  }, []);
 
   const handleDelete = (value) => {
-    console.log('handleDelete');
-    setBalloonNumber(balloonNumber.filter((balloon) => balloon.key != value));
+    // console.log('handleDelete');
+    setBalloons(balloons.filter((balloon) => balloon.key != value));
   };
   const isOnClickHouse = () => {
     console.log('House click!');
@@ -48,11 +60,11 @@ export default function Home() {
       </div>
       {/* Pure CSS Drawing Components */}
       <div>
-        {balloonNumber.map((balloon) => (
+        {balloons.map((balloon) => (
           <BalloonWrapComponent
             key={balloon.key}
             value={balloon.key}
-            translateX={`${200 + balloon.key * -80}%`}
+            translateX={`-50%`}
             translateY={'-50%'}
             scale={0.8}
             rotate={15}
