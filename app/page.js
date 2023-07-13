@@ -19,16 +19,26 @@ export default function Home() {
   ];
 
   const [backgroundColor, setBackgroundColor] = useState('skyblue');
+  const [houseRoofColor, setHouseRoofColor] = useState('#fff');
   const [balloons, setBalloons] = useState(balloonArray);
 
-  const balloonsHandler = () => {
-    let arr = [];
+  const createBalloons = () => {
+    let arr = [...balloons];
+    arr.push({
+      key: v4(),
+      type: 'normal',
+      translateX: Math.floor(Math.random() * (400 - -500) + -500) + `%`,
+      translateY: Math.floor(Math.random() * (-240 - -70) + -70) + `%`,
+      scale: Math.random() * (1 - 0.5) + 0.5,
+      rotate: Math.floor(Math.random() * (45 - 15) + -15),
+    });
 
-    // arr.push({ key: v4(), type: ,translateX: , translateY: ,scale: ,rotate: });
+    console.log(arr);
+    return arr;
   };
-
+  const createColors = () => {};
   useEffect(() => {
-    setBalloons();
+    setBalloons(createBalloons());
   }, []);
 
   const handleDelete = (value) => {
@@ -37,6 +47,10 @@ export default function Home() {
   };
   const isOnClickHouse = () => {
     console.log('House click!');
+    setBalloons(createBalloons());
+
+    setHouseRoofColor();
+    setBackgroundColor();
   };
 
   return (
@@ -54,28 +68,26 @@ export default function Home() {
       <div className='svg_wrap house_wrap'>
         <HouseSvgComponent
           isOnClickHouse={isOnClickHouse}
-          fill={'#fff'}
+          fill={houseRoofColor}
           className='house'
         />
       </div>
       {/* Pure CSS Drawing Components */}
-      <div>
-        {balloons.map((balloon) => (
-          <BalloonWrapComponent
-            key={balloon.key}
-            value={balloon.key}
-            translateX={`-50%`}
-            translateY={'-50%'}
-            scale={0.8}
-            rotate={15}
-            handleDelete={handleDelete}>
-            {balloon.type === 'bear' && <BearComponent />}
-            {balloon.type === 'flower' && <FlowerComponent />}
-            {balloon.type === 'heart' && <HeartComponent />}
-            {balloon.type === 'normal' && <NormalComponent />}
-          </BalloonWrapComponent>
-        ))}
-      </div>
+      {balloons.map((balloon) => (
+        <BalloonWrapComponent
+          key={balloon.key}
+          value={balloon.key}
+          translateX={balloon.translateX}
+          translateY={balloon.translateY}
+          scale={balloon.scale}
+          rotate={balloon.rotate}
+          handleDelete={handleDelete}>
+          {balloon.type === 'bear' && <BearComponent />}
+          {balloon.type === 'flower' && <FlowerComponent />}
+          {balloon.type === 'heart' && <HeartComponent />}
+          {balloon.type === 'normal' && <NormalComponent />}
+        </BalloonWrapComponent>
+      ))}
     </main>
   );
 }
