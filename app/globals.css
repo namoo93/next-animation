@@ -13,7 +13,6 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
-  background-color: skyblue;
 }
 
 /* svg components */
@@ -39,9 +38,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
+  transition: 1s;
 }
+.fixed {
+  transform: translate(-50%, -20%) !important;
+}
+
 .balloon_bottom {
   width: 15px;
   height: 30px;
