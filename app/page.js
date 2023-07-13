@@ -31,9 +31,16 @@ export default function Home() {
       console.log(types[pickTypeIndex]);
       return types[pickTypeIndex];
     };
+
+    const addBalloonColor = () => {
+      const colors = ['#3617c5', '#ff87aa', '#fe3b36', '#ffcc00', '#bfff00'];
+      const pickColorIndex = Math.floor(Math.random() * colors.length);
+      return colors[pickColorIndex];
+    };
     arr.push({
       key: v4(),
       type: addType(),
+      color: addBalloonColor(),
       translateX: Math.floor(Math.random() * (400 - -500) + -500) + `%`,
       translateY: Math.floor(Math.random() * (-240 - -70) + -70) + `%`,
       scale: Math.random() * (1 - 0.5) + 0.5,
@@ -100,7 +107,7 @@ export default function Home() {
           {balloon.type === 'bear' && <BearComponent />}
           {balloon.type === 'flower' && <FlowerComponent />}
           {balloon.type === 'heart' && <HeartComponent />}
-          {balloon.type === 'normal' && <NormalComponent />}
+          {balloon.type === 'normal' && <NormalComponent backgroundColor={balloon.color} />}
         </BalloonWrapComponent>
       ))}
     </main>

@@ -1,10 +1,10 @@
 export default function HeartComponent() {
   return (
     <div className='balloon_animation'>
-      <div className='heart_balloon'>
-        <div className='heart_balloon_right'></div>
-        <div className='heart_balloon_left'></div>
-        <div className='heart_balloon_bottom'></div>
+      <div className='balloon_heart'>
+        <div className='balloon_heart_right'></div>
+        <div className='balloon_heart_left'></div>
+        <div className='balloon_heart_bottom'></div>
       </div>
       <div className='balloon_highlight'></div>
       <div className='balloon_bottom_wrap'>
