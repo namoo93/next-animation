@@ -24,21 +24,36 @@ export default function Home() {
 
   const createBalloons = () => {
     let arr = [...balloons];
+
+    const addType = () => {
+      const types = ['normal', 'heart', 'flower', 'bear', 'normal', 'normal', 'normal'];
+      const pickTypeIndex = Math.floor(Math.random() * types.length);
+      console.log(types[pickTypeIndex]);
+      return types[pickTypeIndex];
+    };
     arr.push({
       key: v4(),
-      type: 'normal',
+      type: addType(),
       translateX: Math.floor(Math.random() * (400 - -500) + -500) + `%`,
       translateY: Math.floor(Math.random() * (-240 - -70) + -70) + `%`,
       scale: Math.random() * (1 - 0.5) + 0.5,
       rotate: Math.floor(Math.random() * (45 - 15) + -15),
     });
 
-    console.log(arr);
+    // console.log(arr);
     return arr;
   };
-  const createColors = () => {};
+
+  const createRGB = () =>
+    `rgb( ${new Array(3)
+      .fill()
+      .map((v) => Math.random() * 255)
+      .join(',')} , 0.3)`;
+
   useEffect(() => {
     setBalloons(createBalloons());
+    // setHouseRoofColor(createRGB());
+    // setBackgroundColor(createRGB());
   }, []);
 
   const handleDelete = (value) => {
@@ -49,13 +64,13 @@ export default function Home() {
     console.log('House click!');
     setBalloons(createBalloons());
 
-    setHouseRoofColor();
-    setBackgroundColor();
+    setHouseRoofColor(createRGB());
+    setBackgroundColor(createRGB());
   };
 
   return (
     <main
-      style={{ backgroundColor: { backgroundColor } }}
+      style={{ backgroundColor: backgroundColor }}
       className='main'>
       {/* Svg Components */}
       <div className='svg_wrap'>

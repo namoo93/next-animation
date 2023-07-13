@@ -242,13 +242,12 @@
 
 /* balloon bear */
 .balloon_bear > .balloon_bottom {
-  bottom: -168px;
+  bottom: -20px;
   background: rgb(190, 120, 60);
 }
 .balloon_bear {
-  position: relative;
   width: 260px;
-  height: inherit;
+  height: 150px;
 }
 .balloon_bear div {
   position: absolute;
