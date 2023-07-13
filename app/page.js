@@ -9,6 +9,8 @@ import FlowerComponent from './Flower';
 import HeartComponent from './Heart';
 import NormalComponent from './Normal';
 import { v4 } from 'uuid';
+import RainbowCat from './RainbowCat';
+import Rainbow from './Rainbow';
 
 export default function Home() {
   const [backgroundColor, setBackgroundColor] = useState('skyblue');
@@ -92,6 +94,7 @@ export default function Home() {
           alt='background clouds'
         />
       </div>
+
       <div className='svg_wrap house_wrap'>
         <HouseSvgComponent
           isOnClickHouse={isOnClickHouse}
@@ -99,6 +102,8 @@ export default function Home() {
           className='house'
         />
       </div>
+      <span>Click The House!</span>
+
       {/* Pure CSS Drawing Components */}
       {balloons.map((balloon) => (
         <BalloonWrapComponent
@@ -115,6 +120,8 @@ export default function Home() {
           {balloon.type === 'normal' && <NormalComponent backgroundColor={balloon.color} />}
         </BalloonWrapComponent>
       ))}
+      <RainbowCat />
+      <Rainbow />
     </main>
   );
 }

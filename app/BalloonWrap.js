@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from 'react';
 
 export default function BalloonWrapComponent({ children, translateX, translateY, scale, rotate, handleDelete, value }) {
