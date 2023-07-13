@@ -34,23 +34,23 @@
 .house_wrap + span {
   position: absolute;
   bottom: 330px;
-  font-size: 30px;
-  color: rgb(51, 0, 255);
-  font-weight: bold;
-  background-image: linear-gradient(rgb(51, 0, 255), rgb(51, 0, 255));
-  background-size: 100% 5px;
-  background-repeat: no-repeat;
-  background-position: 0% 100%;
-  transition: background-size 0.7s, background-position 0.5s ease-in-out;
+  font-size: 80px;
+
+  transition: all 0.5s ease-in-out;
+  font-weight: 700;
+  letter-spacing: 0.02px;
+  text-align: center;
+  color: #f9f1cc;
+  text-shadow: 2px 2px 0px #ffb650, 4px 4px 0px #ffd662, 7px 7px 0px #ff80bf, 12px 12px 0px #ef5097,
+    17px 17px 0px #6868ac, 21px 21px 0px #90b1e0;
+  transform: scale(0.5);
 }
 .house_wrap:hover {
   cursor: pointer;
 }
 .house_wrap:hover + span {
   color: #fff;
-  background-size: 100% 100%;
-  background-position: 0% 100%;
-  transition: background-position 0.7s, background-size 0.5s ease-in-out;
+  animation: textFrames 1s ease-in-out infinite;
 }
 
 /* balloons */
@@ -380,5 +380,17 @@
   }
   50% {
     transform: translateY(-25px) rotate(4deg);
+  }
+}
+
+@keyframes textFrames {
+  0%,
+  100% {
+    text-shadow: 2px 2px 0px #ffb650, 4px 4px 0px #ffd662, 7px 7px 0px #ff80bf, 12px 12px 0px #ef5097,
+      17px 17px 0px #6868ac, 21px 21px 0px #90b1e0;
+  }
+  50% {
+    text-shadow: 2px 2px 0px #90b1e0, 4px 4px 0px #6868ac, 7px 7px 0px #ff80bf, 12px 12px 0px #ef5097,
+      17px 17px 0px #ffd662, 21px 21px 0px #ffb650;
   }
 }
