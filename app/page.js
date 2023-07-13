@@ -11,19 +11,26 @@ import NormalComponent from './Normal';
 import { v4 } from 'uuid';
 
 export default function Home() {
-  const balloonArray = [
-    // { key: 1, type: 'bear' },
-    // { key: 2, type: 'flower' },
-    // { key: 3, type: 'heart' },
-    // { key: 4, type: 'normal' },
-  ];
-
   const [backgroundColor, setBackgroundColor] = useState('skyblue');
   const [houseRoofColor, setHouseRoofColor] = useState('#fff');
-  const [balloons, setBalloons] = useState(balloonArray);
+  const [balloons, setBalloons] = useState([]);
 
   const createBalloons = () => {
-    let arr = [...balloons];
+    let translateX = Math.floor(Math.random() * (400 - -500) + -500);
+
+    const addRotate = (x) => {
+      let num;
+      if (x > 50) {
+        num = Math.floor(Math.random() * (50 - 22) + 22);
+        return num;
+      }
+      if (x < -200) {
+        num = Math.floor(Math.random() * (-45 - -15) + -15);
+        return num;
+      }
+      num = Math.floor(Math.random() * (10 - -10) + -10);
+      return num;
+    };
 
     const addType = () => {
       const types = ['normal', 'heart', 'flower', 'bear', 'normal', 'normal', 'normal'];
@@ -37,18 +44,16 @@ export default function Home() {
       const pickColorIndex = Math.floor(Math.random() * colors.length);
       return colors[pickColorIndex];
     };
-    arr.push({
+
+    return {
       key: v4(),
       type: addType(),
       color: addBalloonColor(),
-      translateX: Math.floor(Math.random() * (400 - -500) + -500) + `%`,
+      translateX: translateX + '%',
       translateY: Math.floor(Math.random() * (-240 - -70) + -70) + `%`,
       scale: Math.random() * (1 - 0.5) + 0.5,
-      rotate: Math.floor(Math.random() * (45 - 15) + -15),
-    });
-
-    // console.log(arr);
-    return arr;
+      rotate: addRotate(translateX),
+    };
   };
 
   const createRGB = () =>
@@ -58,19 +63,19 @@ export default function Home() {
       .join(',')} , 0.3)`;
 
   useEffect(() => {
-    setBalloons(createBalloons());
-    // setHouseRoofColor(createRGB());
-    // setBackgroundColor(createRGB());
+    let arr = [];
+    for (let i = 0; i < 30; i++) {
+      arr.push(createBalloons());
+    }
+    setBalloons(arr);
   }, []);
 
   const handleDelete = (value) => {
-    // console.log('handleDelete');
     setBalloons(balloons.filter((balloon) => balloon.key != value));
   };
   const isOnClickHouse = () => {
-    console.log('House click!');
-    setBalloons(createBalloons());
-
+    // console.log('House click!');
+    setBalloons([...balloons, createBalloons()]);
     setHouseRoofColor(createRGB());
     setBackgroundColor(createRGB());
   };
