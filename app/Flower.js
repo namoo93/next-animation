@@ -7,8 +7,11 @@ export default function FlowerComponent() {
       <div className='flower_head'></div>
       <div className='flower_head'></div>
       <div className='flower_head'></div>
-      <div className='flower_head inside'></div>
-
+      <div className='flower_head inside'>
+        <div className='flower_eyes_left'></div>
+        <div className='flower_eyes_right'></div>
+        <div className='flower_mouse'></div>
+      </div>
       <div className='balloon_bottom'></div>
     </div>
   );
