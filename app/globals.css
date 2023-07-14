@@ -33,14 +33,13 @@
 }
 .house_wrap + span {
   position: absolute;
-  bottom: 330px;
+  bottom: 300px;
   font-size: 80px;
-
   transition: all 0.5s ease-in-out;
   font-weight: 700;
   letter-spacing: 0.02px;
   text-align: center;
-  color: #f9f1cc;
+  color: #fff;
   text-shadow: 2px 2px 0px #ffb650, 4px 4px 0px #ffd662, 7px 7px 0px #ff80bf, 12px 12px 0px #ef5097,
     17px 17px 0px #6868ac, 21px 21px 0px #90b1e0;
   transform: scale(0.5);
@@ -60,7 +59,7 @@
   top: 50%;
   left: 50%;
   transition: 1s;
-  z-index: 1;
+  z-index: 3;
 }
 .fixed {
   transform: translate(-50%, -20%) !important;
@@ -368,6 +367,13 @@
   transform: rotate(45deg);
 }
 
+.canvas_wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+
 /* css animations */
 .balloon_animation {
   transition: transform 0.5s ease;
@@ -390,7 +396,7 @@
       17px 17px 0px #6868ac, 21px 21px 0px #90b1e0;
   }
   50% {
-    text-shadow: 2px 2px 0px #90b1e0, 4px 4px 0px #6868ac, 7px 7px 0px #ff80bf, 12px 12px 0px #ef5097,
+    text-shadow: 2px 2px 0px #90b1e0, 4px 4px 0px #6868ac, 7px 7px 0px #ef5097, 12px 12px 0px #ff80bf,
       17px 17px 0px #ffd662, 21px 21px 0px #ffb650;
   }
 }

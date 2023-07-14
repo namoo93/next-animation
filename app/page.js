@@ -11,6 +11,7 @@ import NormalComponent from './Normal';
 import { v4 } from 'uuid';
 import RainbowCat from './RainbowCat';
 import Rainbow from './Rainbow';
+import CanvasComponent from './Canvas';
 
 export default function Home() {
   const [backgroundColor, setBackgroundColor] = useState('skyblue');
@@ -37,7 +38,6 @@ export default function Home() {
     const addType = () => {
       const types = ['normal', 'heart', 'flower', 'bear', 'normal', 'normal', 'normal'];
       const pickTypeIndex = Math.floor(Math.random() * types.length);
-      console.log(types[pickTypeIndex]);
       return types[pickTypeIndex];
     };
 
@@ -120,6 +120,11 @@ export default function Home() {
           {balloon.type === 'normal' && <NormalComponent backgroundColor={balloon.color} />}
         </BalloonWrapComponent>
       ))}
+
+      {/* Canvas Components */}
+      <CanvasComponent />
+
+      {/* Lottie Components */}
       <RainbowCat />
       <Rainbow />
     </main>

@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'anmations',
+  title: 'animations',
   description: 'Page with animation and interaction',
 };
 
