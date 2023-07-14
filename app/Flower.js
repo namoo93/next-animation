@@ -1,4 +1,4 @@
-export default function FlowerComponent() {
+export default function FlowerComponent({ line }) {
   return (
     <div className='balloon_flower balloon_animation'>
       <div className='flower_head'></div>
@@ -13,6 +13,7 @@ export default function FlowerComponent() {
         <div className='flower_mouse'></div>
       </div>
       <div className='balloon_bottom'></div>
+      {line && <div className='lines'></div>}
     </div>
   );
 }

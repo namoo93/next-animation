@@ -17,21 +17,28 @@ export default function Home() {
   const [backgroundColor, setBackgroundColor] = useState('skyblue');
   const [houseRoofColor, setHouseRoofColor] = useState('#fff');
   const [balloons, setBalloons] = useState([]);
+  const [exploded, setExploded] = useState({});
 
   const createBalloons = () => {
     let translateX = Math.floor(Math.random() * (400 - -500) + -500);
-
+    let translateY = Math.floor(Math.random() * (-240 - -70) + -70);
+    let balloonKey = v4();
+    let isLine = false;
     const addRotate = (x) => {
       let num;
-      if (x > 50) {
+      if (x > 20) {
         num = Math.floor(Math.random() * (50 - 22) + 22);
         return num;
       }
-      if (x < -200) {
+      if (x < -120) {
         num = Math.floor(Math.random() * (-45 - -15) + -15);
         return num;
       }
-      num = Math.floor(Math.random() * (10 - -10) + -10);
+      if (translateY > -200) {
+        isLine = true;
+      }
+      num = Math.floor(Math.random() * (-5 - 5));
+
       return num;
     };
 
@@ -48,13 +55,14 @@ export default function Home() {
     };
 
     return {
-      key: v4(),
+      key: balloonKey,
       type: addType(),
       color: addBalloonColor(),
       translateX: translateX + '%',
-      translateY: Math.floor(Math.random() * (-240 - -70) + -70) + `%`,
+      translateY: translateY + `%`,
       scale: Math.random() * (1 - 0.5) + 0.5,
       rotate: addRotate(translateX),
+      line: isLine,
     };
   };
 
@@ -66,13 +74,25 @@ export default function Home() {
 
   useEffect(() => {
     let arr = [];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
       arr.push(createBalloons());
     }
     setBalloons(arr);
   }, []);
+  useEffect(() => {}, [balloons]);
 
-  const handleDelete = (value) => {
+  // const getLinesLocation = () => {
+  //   let arr;
+  //   const domElement = document.getElementById(tmpBalloon);
+  //   const domElementRect = domElement.getBoundingClientRect();
+  //   arr = [...lines, { bottom: domElementRect.bottom, left: domElementRect.left, right: domElementRect.right }];
+
+  //   setLines(arr);
+  // };
+
+  const handleDelete = (value, e) => {
+    // console.log();
+    setExploded(e.clientX, e.clientY);
     setBalloons(balloons.filter((balloon) => balloon.key != value));
   };
   const isOnClickHouse = () => {
@@ -107,6 +127,7 @@ export default function Home() {
       {/* Pure CSS Drawing Components */}
       {balloons.map((balloon) => (
         <BalloonWrapComponent
+          id={balloon.key}
           key={balloon.key}
           value={balloon.key}
           translateX={balloon.translateX}
@@ -114,15 +135,31 @@ export default function Home() {
           scale={balloon.scale}
           rotate={balloon.rotate}
           handleDelete={handleDelete}>
-          {balloon.type === 'bear' && <BearComponent />}
-          {balloon.type === 'flower' && <FlowerComponent />}
+          {balloon.type === 'bear' && <BearComponent line={balloon.line} />}
+          {balloon.type === 'flower' && <FlowerComponent line={balloon.line} />}
           {balloon.type === 'heart' && <HeartComponent />}
-          {balloon.type === 'normal' && <NormalComponent backgroundColor={balloon.color} />}
+          {balloon.type === 'normal' && (
+            <NormalComponent
+              backgroundColor={balloon.color}
+              line={balloon.line}
+            />
+          )}
         </BalloonWrapComponent>
       ))}
 
       {/* Canvas Components */}
-      <CanvasComponent />
+      {/* {lines.length !== 0 &&
+        lines.map((balloon) => (
+          <div
+            key={balloon.key}
+            className='canvas_wrap balloon_animation'>
+            <CanvasComponent
+              bottom={balloon.bottom}
+              right={balloon.right}
+              left={balloon.left}
+            />
+          </div>
+        ))} */}
 
       {/* Lottie Components */}
       <RainbowCat />

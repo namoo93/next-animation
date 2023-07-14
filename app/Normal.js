@@ -1,4 +1,4 @@
-export default function NormalComponent({ backgroundColor = '#bfff00' }) {
+export default function NormalComponent({ backgroundColor = '#bfff00', line }) {
   return (
     <div className='balloon_normal balloon_animation'>
       <div
@@ -9,6 +9,7 @@ export default function NormalComponent({ backgroundColor = '#bfff00' }) {
       <div
         style={{ backgroundColor: backgroundColor }}
         className='balloon_bottom'></div>
+      {line && <div className='lines'></div>}
     </div>
   );
 }

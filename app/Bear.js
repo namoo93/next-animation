@@ -1,4 +1,4 @@
-export default function BearComponent() {
+export default function BearComponent({ line }) {
   return (
     <div className='balloon_bear balloon_animation'>
       <div className='bear_head'>
@@ -16,6 +16,7 @@ export default function BearComponent() {
         <div className='ear_inner'></div>
       </div>
       <div className='balloon_bottom'></div>
+      {line && <div className='lines'></div>}
     </div>
   );
 }
