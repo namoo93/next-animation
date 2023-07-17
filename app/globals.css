@@ -26,9 +26,9 @@
 }
 
 .house_wrap {
-  top: 50%;
+  bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translateX(-50%);
   z-index: 5;
 }
 .house_wrap + span {
@@ -78,7 +78,7 @@
 .lines {
   position: absolute;
   width: 2px;
-  height: 800px;
+  height: 1000px;
   background: #000;
   left: 50%;
   z-index: -2;

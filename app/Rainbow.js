@@ -5,8 +5,8 @@ import animationRainbow from '../public/animationRainbow.json';
 const style = {
   height: 250,
   position: 'absolute',
-  top: '30%',
-  right: '20px',
+  top: '50vh',
+  right: '10vw',
 };
 
 const Rainbow = () => {

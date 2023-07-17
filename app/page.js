@@ -74,7 +74,7 @@ export default function Home() {
 
   useEffect(() => {
     let arr = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 70; i++) {
       arr.push(createBalloons());
     }
     setBalloons(arr);
